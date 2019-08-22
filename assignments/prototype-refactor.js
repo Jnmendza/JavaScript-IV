@@ -33,7 +33,7 @@ class CharacterStats extends GameObject{
     }
 }
 
-/**********************CHARACTER STATS ************************/
+/**********************HUMANOID STATS ************************/
 // JS III CODE
 function Humanoid(humAtt){
     CharacterStats.call(this, humAtt);
