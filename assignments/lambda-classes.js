@@ -18,10 +18,10 @@ class Instructor extends Person{
         this.newCatchPhrase = inAttributes.catchPhrase
     }
     demo(subject){
-        return `Today we are learning about ${this.newSubject}`;
+        return `Today we are learning about ${subject}`;
     }
     grade(student, subject){
-        return `${this.newName} receives a perfect score on ${subject}`;
+        return `${student} receives a perfect score on ${subject}`;
     }
 }
 
@@ -33,9 +33,9 @@ class Student extends Person{
         this.newFavSubjects = sdAttributes.favSubjects
     }
 
-    // listsSubjects(favSubjects,cb){
-    //     cb() 
-    // }
+    listsSubjects(){
+        return `${this.newName}'s favorite subjects are ${this.newFavSubjects}`;
+    }
     PRAssignments(subject){
         return `${this.newName} has submitted a PR for ${subject}`;
     }
@@ -53,10 +53,16 @@ class ProjectManager extends Instructor{
     standUp(channel){
         return `${this.newName} announces to ${channel}, @channel standy times!`;
     }
-    debugsCode(student,subject){
-        return `${this.newName} debugs ${student.name} code on ${subject}`;
+    debugsCode(student, subject){
+        return `${this.newName} debugs ${student} code on ${subject}`;
     }
 }
+
+const jonathan = new Person({
+    name: 'Jonathan',
+    age: 32,
+    location: 'San Diego'
+})
 
 const jim = new Instructor({
     name: 'Jim',
@@ -85,10 +91,11 @@ const tim = new ProjectManager({
     favInstructor:'Sean',
 })
 
-console.log(jim.demo());
-console.log(jim.grade());
-// console.log(ray.listSubjects());
-console.log(ray.PRAssignments());
-console.log(ray.sprintChallenge());
-console.log(tim.standUp());
-console.log(tim.debugsCode());
+console.log(jonathan.speak())
+console.log(jim.demo('classes in JS'));
+console.log(jim.grade('Jim','C++'));
+console.log(ray.listsSubjects());
+console.log(ray.PRAssignments('frontend design.'));
+console.log(ray.sprintChallenge('javascript'));
+console.log(tim.standUp('WEB23'));
+console.log(tim.debugsCode("Jon's",'js'));
